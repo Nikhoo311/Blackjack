@@ -55,24 +55,29 @@ def montantBanque():
     """
     affichage(['========== Montant de la Banque ==============\n\t1- 100€','\n\t2- 250€\n\t3- 500€','\n\t4- Personnaliser\n==============================================='])
     rep = initMenu()
+    # Pour 100€
     if rep == 1:
         banque = 100
         return banque
+    # Pour 250€
     elif rep == 2:
         banque = 250
         return banque
+    # Pour 500 #
     elif rep == 3:
         banque = 500
         return banque
+    # Montant personnaliser
     elif rep == 4:
-        montant = input("Quel budget voulez-vous mettre dans votre banque : ")
         isCorrect =  False
         while not(isCorrect):
+            montant = input("Quel budget voulez-vous mettre dans votre banque : ")
             try:
+                # Voir si la convertion c'est bien faite
                 int(montant)
                 banque = int(montant)
-                print("DEBUG: la banque du joueur :" + str(banque))
+                # retourne le montant de la banque / porte-monnaie du joueur
                 return banque
             except ValueError:
-                isCorrect = False
                 print('Veuilllez mettre un nombre entier !')
+                isCorrect = False
