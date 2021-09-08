@@ -14,4 +14,4 @@ Options possibles :
 -------------------
 * Ajout d'une partie graphique
 
-# fait par Nikho311#4940 et Jules.dap#1822
+fait par **Nikho311#4940** et **Jules.dap#1822**
