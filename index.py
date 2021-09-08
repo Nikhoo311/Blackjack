@@ -9,6 +9,9 @@ def affichage(liste):
 
 
 def initMenu():
+    """ Partie dynamique du menu avec 4 options possibles
+        Sortie : Renvoie un entier correspondant a l'action choisie du menu en question
+    """
     isCorrect = False
     while not(isCorrect):
         rep = input('Quel fonctinnalité ?: ')
@@ -34,13 +37,42 @@ def menu():
         Sortie : Affichage du menu et renvoie un int / entier
     """
     affichage(['========================\n\t1- Jouer une partie','\n\t2- Montant de la banque\n\t3- Statistiques','\n\t4- Quitter\n========================'])
-    initMenu()
+    # conditions pour toutes les fonctionnalitées du menu
+    rep = initMenu()
+    if rep == 1:
+        print("La partie vient de commencer !")
+    elif rep == 2:
+        montantBanque()
+    elif rep == 3:
+        print('ICI les statistiques de toutes les parties jouer !')
+    elif rep == 4:
+        quit()
 
-
-def MontantBanque():
+def montantBanque():
     """
         Affiche le menu pour le montant de la banque du joueur
         Sortie : Renvoie un entier du montant de la banque
     """
     affichage(['========== Montant de la Banque ==============\n\t1- 100€','\n\t2- 250€\n\t3- 500€','\n\t4- Personnaliser\n==============================================='])
-    initMenu()
+    rep = initMenu()
+    if rep == 1:
+        banque = 100
+        return banque
+    elif rep == 2:
+        banque = 250
+        return banque
+    elif rep == 3:
+        banque = 500
+        return banque
+    elif rep == 4:
+        montant = input("Quel budget voulez-vous mettre dans votre banque : ")
+        isCorrect =  False
+        while not(isCorrect):
+            try:
+                int(montant)
+                banque = int(montant)
+                print("DEBUG: la banque du joueur :" + str(banque))
+                return banque
+            except ValueError:
+                isCorrect = False
+                print('Veuilllez mettre un nombre entier !')
